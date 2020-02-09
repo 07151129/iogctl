@@ -1,0 +1,52 @@
+diff -Naur IOGraphics.xcodeproj/project.pbxproj IOGraphics.xcodeproj/project.pbxproj
+--- IOGraphics.xcodeproj/project.pbxproj	2019-06-18 02:48:00.000000000 +0200
++++ IOGraphics.xcodeproj/project.pbxproj	2020-02-09 21:57:49.000000000 +0100
+@@ -924,6 +924,7 @@
+ 			developmentRegion = English;
+ 			hasScannedForEncodings = 1;
+ 			knownRegions = (
++				English,
+ 				en,
+ 			);
+ 			mainGroup = 015488CD00BAFF6C11CA2A5F;
+@@ -1289,7 +1290,7 @@
+ 				MTL_ENABLE_DEBUG_INFO = YES;
+ 				ONLY_ACTIVE_ARCH = YES;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+-				SDKROOT = macosx.internal;
++				SDKROOT = macosx;
+ 				SKIP_INSTALL = YES;
+ 			};
+ 			name = Development;
+@@ -1340,7 +1341,7 @@
+ 				MACOSX_DEPLOYMENT_TARGET = 10.13;
+ 				MTL_ENABLE_DEBUG_INFO = NO;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+-				SDKROOT = macosx.internal;
++				SDKROOT = macosx;
+ 				SKIP_INSTALL = YES;
+ 			};
+ 			name = Deployment;
+@@ -1391,7 +1392,7 @@
+ 				MACOSX_DEPLOYMENT_TARGET = 10.13;
+ 				MTL_ENABLE_DEBUG_INFO = NO;
+ 				PRODUCT_NAME = "$(TARGET_NAME)";
+-				SDKROOT = macosx.internal;
++				SDKROOT = macosx;
+ 				SKIP_INSTALL = YES;
+ 			};
+ 			name = Default;
+
+diff -Naur tools/iogctl.m ./tools/iogctl.m
+--- tools/iogctl.m	2019-06-18 02:48:01.000000000 +0200
++++ ./tools/iogctl.m	2020-02-09 21:58:35.000000000 +0100
+@@ -181,6 +181,9 @@
+     }
+ }
+
++uint32_t kIOGDUCInterface_metrics = 1;
++uint32_t kIOGDUCInterface_clamshell = 2;
++
+ IOReturn invokeInjectCS(io_connect_t connect, uint64_t injectCSCmd)
+ {
+     uint64_t scalarParams[] = { injectCSCmd };
