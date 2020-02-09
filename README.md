@@ -22,5 +22,5 @@ commands
 will simulate a clamshell close event, disabling the built-in display even if the lid is open. The
 source of the program demonstrates the usage of IOGDiagnosticUserClient.
 
-Warning: IOGDiagnosticUserClient does not check client process privilege, which may mean to denial
+Warning: IOGDiagnosticUserClient does not check client process privilege, which may lead to denial
 of service. Use at your own risk.
