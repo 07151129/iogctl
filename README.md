@@ -22,5 +22,9 @@ commands
 will simulate a clamshell close event, disabling the built-in display even if the lid is open. The
 source of the program demonstrates the usage of IOGDiagnosticUserClient.
 
+Note that if clamshell command injection is enabled, the actual clamshell state changes will not be
+re-evaluated ignored until `./iogctl injectCS.disable` is run. This may make the system unusable if
+there's no external display connected.
+
 Warning: IOGDiagnosticUserClient does not check client process privilege, which may lead to denial
 of service. Use at your own risk.
